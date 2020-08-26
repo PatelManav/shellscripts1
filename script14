@@ -1,0 +1,26 @@
+
+
+#!/bin/bash
+
+echo "Enter the fle name: "
+read dir1
+
+com1=`ls $dir1`
+
+if [ ! -d $dir ];
+then
+    echo "No such directory exist"
+else
+    echo "File     Size    Date     Protection   Owner"
+    for i in $com1; do
+        if [ -f $i ]; 
+        then
+            o1=`stat --printf="%n\t" $i`
+            o2=`stat --printf="%s\t" $i`
+            o3=`stat --printf="%w\t" $i`
+            o4=`stat --printf="%A  " $i`
+            o5=`stat --printf="%U" $i`
+            echo "$o1$o2$o3$o4  $o5"
+        fi
+    done
+fi

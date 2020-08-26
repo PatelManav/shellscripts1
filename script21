@@ -1,0 +1,15 @@
+
+#!/bin/bash
+
+echo "Please enter the date (in YYYY-MM-DD): "
+read datt
+
+echo "---------------  Newer than specified date  ------------------"
+touch timestamp -d $datt
+find . -newer timestamp
+
+echo "---------------  Older than specified date  ------------------"
+find . ! -newer timestamp
+
+
+

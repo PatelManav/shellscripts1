@@ -1,0 +1,34 @@
+
+#!/bin/bash
+
+echo "Enter the name of the file: "
+read fil1
+
+if [ -f $fil1 ]
+then
+    if [[ $fil1 = "file1" ]]
+    then 
+	echo "The details of this file: "
+        ls -l $fil1
+    elif [[ $fil1 = "file2" ]]
+    then 
+	echo "The details of this file: "
+        ls -l $fil1
+    elif [[ $fil1 = "file3" ]]
+    then 
+	echo "The details of this file: "
+        ls -l $fil1
+    elif [[ $fil1 = "file4" ]]
+    then 
+	echo "The details of this file: "
+        ls -l $fil1
+    elif [[ $fil1 = "file5" ]]
+    then 
+	echo "The details of this file: "
+        ls -l $fil1
+    else
+        echo "PLease enter proper details!!!"
+    fi
+else
+    echo "no such file exist!!!"
+fi

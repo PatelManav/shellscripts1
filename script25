@@ -1,0 +1,74 @@
+
+#!/bin/bash
+
+echo "1. Add item"
+echo "2. Update item"
+echo "3. Delete item"
+echo "4. Purchasae item"
+echo "5. printout"
+echo "Enter your choice: "
+read choice
+
+case $choice in
+1) echo "Item name: "
+   read itn
+   echo "Item code: "
+   read itc
+   echo "Item price: "
+   read itp
+   echo "$itn|$itc|$itp" | cat >> item
+   echo "records successfully added!!!" ;;
+2) echo "Enter the Item code: "
+   read -r itc
+   TTY=`tty`
+   while read i; do
+       if [ "`echo $i | cut -d '|' -f 2`" = "$itc" ]; then
+           echo -n "new Item name: "
+           read -r itn < $TTY
+           echo -n "new Item code: "
+           read -r itx < $TTY
+           echo -n "new Item price: "
+           read -r itp < $TTY
+           echo "$itn|$itx|$itp" | cat >> itemtemp
+       else
+           echo "$i" | cat >> itemtemp
+       fi
+   done < item
+   mv itemtemp item
+   echo "updated successfully!!!" ;;
+3) echo "Enter the Item code: "
+   read itc
+   cnt=0
+   while read i; do
+       if [ "`echo $i | cut -d '|' -f 2`" = "$itc" ]; then
+           ((cnt++))
+       else 
+           echo "$i" | cat >> delitem
+       fi
+   done < item
+   mv delitem item
+   echo "Deletion successfull!!!" ;;
+4) echo "Enter the Item code: "
+   read itc
+   while read i; do
+       if [ "`echo $i | cut -d '|' -f 2`" = "$itc" ]; then
+           echo "$i" | cat >> bill
+        fi
+   done < item
+   echo "item added to final cart!!!" ;;
+5) cnt=1
+   sum=0
+   echo "------------CHECKOUT-------------"
+   while read i; do
+	cmd=`echo $i | cut -d '|' -f 3`
+        cmd1=`echo $i | cut -d '|' -f 2`
+        cmd2=`echo $i | cut -d '|' -f 1`
+	echo "itemno. $cnt : $cmd2 $cmd1 $cmd"
+	echo "----------------------------"
+        ((sum=sum+cmd))
+        ((cnt++))
+   done < bill
+   echo "Total payable amount: $sum"
+   echo "-----------Thank You-------------" ;;
+*) echo "please enter the valid choice" ;;
+esac

@@ -1,0 +1,21 @@
+
+#!/bin/bash
+
+echo "Enter the name of the directory: "
+read dir1
+
+if [ ! -d $dir1 ]; then
+    echo "no such directory exist"
+    exit 1
+fi
+
+subs=`ls $dir1`
+cnt=0
+for i in $subs; do
+    if [[ -x "$dir1/$i" ]]
+    then
+	cnt=$((cnt+1))
+    fi
+done
+
+echo "Total executable number files $cnt"

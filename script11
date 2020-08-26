@@ -1,0 +1,13 @@
+
+#!/bin/bash
+
+echo "Enter the name of directory: "
+
+read dir1
+
+cmd=`fdupes -r $dir1`
+
+echo "$cmd"
+echo "All duplicate files deleted successfully!!!"
+
+ 

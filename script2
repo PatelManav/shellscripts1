@@ -1,0 +1,13 @@
+
+#!/bin/bash
+
+echo "Please eneter the file name: "
+read filename
+
+if [ -f ~/$filename ]
+then 
+	rm -r $filename
+	echo "file deleted successffully."
+else 
+	echo "no such file exist"
+fi

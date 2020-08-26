@@ -1,0 +1,60 @@
+
+#!/bin/bash
+
+echo "1. Add Employee."
+echo "2. Get info by ecmployee name."
+echo "3. Find employee with salaray between 4000 to 7000."
+
+echo "Enter your choice: "
+read choice
+
+case $choice in
+1)  echo "first name: "
+    read fname
+    echo "last name: "
+    read lname
+    echo "year: "
+    read y
+    IFS= read -r -p "Address: " addr
+    echo "salary: "
+    read sal
+    sp=" | "
+    st1="$fname$sp$lname$sp$y$sp$addr$sp$sal"
+    echo "$st1" >> a1
+    if [ $sal -lt 7000 -a $sal -gt 4000 ]; then
+        echo "$st1" >> tempsal
+        cat tempsal
+    fi
+    echo "employee details successfully fulfilled!!!";;
+2)  echo "enter the name of employee: "
+    read name
+    cmd2=`grep '$name' a1`
+    ok=0
+    cnt=1
+    it=1
+    cmd=`awk '{print $1}' a1`
+    for i in $cmd
+    do
+	if [ $name == $i ];  then
+           while IFS= read -r line; do
+		if [ $it == $cnt ]; then
+		    echo "$line"
+                    break
+                fi
+		((it++))
+	    done < a1
+	    ok=1
+	    break
+	fi
+        ((cnt++))
+    done
+    if [ $ok != 1 ]; then
+	echo "no such user found in database :( "
+    fi;;
+3)  cmd="tempsal"
+    lines=`wc -l $cmd`
+    echo "Number of employees with the given condition is/are: $lines"
+    while IFS= read -r line; do
+    echo "$line"
+    done < tempsal;;
+esac

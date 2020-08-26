@@ -1,0 +1,10 @@
+
+#!/bin/bash
+
+cmd1="/dev/pts/1"
+
+echo "Please enther the message you want to send to user: "
+read mess
+
+echo "$mess" > $cmd1
+

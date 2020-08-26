@@ -1,0 +1,28 @@
+
+
+#!/bin/bash
+
+echo "a) printed the sorted list of users: "
+who | sort
+
+echo "b) Count total number of users: "
+who | wc -l
+
+echo "C) name: "
+read nam
+echo "number of times logged in: `last | grep $nam | wc -l`" 
+
+echo "d) name: "
+read usname
+
+if [ -z "`who -H | grep ^$usname`" ]; then
+    echo "user is not active"
+else 
+    echo "user is active"
+fi 
+
+echo "e) all users without password"
+
+sudo awk -F ":" '($2 == "") {print $1}' /etc/shadow
+
+

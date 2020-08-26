@@ -1,0 +1,13 @@
+
+#!/bin/bash
+
+echo "Please enter the filename: "
+read filename
+
+cmd=`find $HOME -iname $filename`
+if [ -z "$cmd" ]; then
+    echo "no file found"
+else  
+    echo "Path: $cmd"
+fi
+

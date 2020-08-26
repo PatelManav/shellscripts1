@@ -1,0 +1,13 @@
+
+#!/bin/bash
+
+echo "`date +"%e-%B-%Y %I::%M::%S %p"`"
+tim=`date +"%k"`
+
+if [ $tim -ge 5 -a $tim -lt 12 ]; then
+    echo "good morning"
+elif [ $tim -ge 12 -a $tim -lt 18 ]; then
+    echo "good afternoon"
+else
+    echo "good night"
+fi

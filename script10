@@ -1,0 +1,28 @@
+
+#!/bin/bash
+
+echo "Enter the file 1: "
+read fil1
+
+echo "Enter the file 2: "
+read fil2
+
+if [ ! -f $fil1 ]
+then 
+    echo "File 1 not found."
+elif [ ! -f $fil2 ]
+then
+    echo "File 2 not found."
+else
+    diff -u $fil1 $fil2 > /dev/null
+    zeroo=0
+    if [[ "$?" == 0 ]]
+    then 
+        rm -r $fil1
+        echo "file 1 deleted successfully."
+    else
+        echo "both files have different content."
+    fi
+fi
+
+

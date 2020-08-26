@@ -1,0 +1,46 @@
+
+#!/bin/bash
+
+echo "Menu"
+echo "1. Display Current Directory"
+echo "2. List Directory"
+echo "3. Make Directory"
+echo "4. Change Directory"
+echo "5. COpy a file"
+echo "6. Rename a file"
+echo "7. Delete a file"
+echo "8. Exit"
+echo "-  Enter your choice: "
+read choice
+
+case $choice in
+    1) pwd;;
+    2) ls;;
+    3) echo "Enter the name of Directory: "
+       read dir1
+       mkdir $dir1
+       echo $dir1
+       echo "Directory is created.";;
+    4) echo "Enter file for copy: "
+       read fil1
+       echo "Enter the file where to copy: "
+       read fil2
+       cp $fil1 $fil2
+       echo "Copied successfully.";;
+    5) echo "Enter the file to rename: "
+       read fil1
+       echo "Enter the name of file where to move: "
+       read fil2
+       mv $fil1 $fil2
+       echo "rename operation done successfully.";;
+    6) echo "Enter the file to be deleted: "
+       read fil1
+       rm $fil1
+       echo "Deleted successfully.";;
+    7) echo "Enter the file to be edited: "
+       read fil1
+       vi $fil1;;
+    8) echo "Thank you!!!!!!"
+       exit;;
+    *) echo "Invalid choice";;
+esac

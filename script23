@@ -1,0 +1,17 @@
+
+#!/bin/bash
+
+while [ : ]
+do
+    echo "Enter the file name"
+    read fil1
+
+    cmd1=`echo $BASHPID`
+    mv "$fil1" "${fil1%.*} $cmd1.txt"
+    echo "${fil1%.*} $cmd1.txt"
+    echo "Press E to exit"
+    read ke
+    if [ $ke == "E" ]; then 
+        break
+    fi
+done

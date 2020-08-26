@@ -1,0 +1,38 @@
+
+#!/bin/bash
+
+echo "Enter name of directory 1: "
+read dir1
+
+echo "Enter name of directory 2: "
+read dir2
+
+echo "Enter the target directory: "
+read dir3
+
+cnt=0
+if [ ! -d $dir1 ]
+then 
+    echo "directory 1 doesn't exist."
+elif [ ! -d $dir2 ]
+then
+    echo "directory 2 doesn't exist."
+else
+    if [ ! -d $dir3 ]
+    then
+        $(mkdir $dir3)
+	echo "Successfully created new directory."
+    fi
+    com1=`ls $dir1`
+    com2=`ls $dir2`
+    for i in $com1; do
+        for j in $com2; do
+	    if [[ $i == $j ]]; then
+		cp -v -r $dir1/$i $dir3
+	        ((cnt++))
+	    fi
+        done
+    done
+fi
+
+echo "Total number of files transferred: $cnt"

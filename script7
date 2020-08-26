@@ -1,0 +1,12 @@
+
+#!/bin/bash
+
+echo "Enter the name of directory: "
+read dir1
+
+if [ ! -d "$dir1" ]
+then 
+    echo "No such directory exist."
+else
+    ls -lS -r $dir1
+fi

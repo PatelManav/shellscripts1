@@ -1,0 +1,22 @@
+
+#!/bin/bash
+
+echo "Enter the file1: "
+read dir1
+
+echo "Enter the file2: "
+read dir2
+
+if [ ! -d $dir1 -o ! -d $dir2 ]; then
+    echo "no such directory exist"
+    exit 1
+fi
+
+subs=`ls $dir1`
+
+for i in $subs; do
+  mv "$dir1/$i" "$dir2"
+done
+
+echo "moving operation done successfully"
+

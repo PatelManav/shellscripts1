@@ -1,0 +1,15 @@
+
+#!/bin/bash
+
+echo "Enter the delay to be made(in seconds): "
+read X
+
+echo "Enter number of iterations: "
+read M
+
+i=0
+while [ "$i" -lt "$M" ]; do
+    echo "hello world"
+    i=$((i+1))
+    sleep $X
+done

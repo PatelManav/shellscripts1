@@ -1,0 +1,43 @@
+
+#/bin/bash
+
+echo "Enter the file name: "
+read fil1
+
+if [ ! -f $fil1 ]
+then 
+   echo "No such file found"
+   exit
+fi
+
+echo "1. Cpunt the character, words and lines."
+echo "2. Reverse the file."
+echo "3. Frequency of particular word in the file."
+echo "4. Convert lowerase to uppercase"
+echo "5. Exit."
+
+echo "Enter your choice"
+read choice
+
+case $choice in
+    1) echo "chacaters: " $(cat $fil1 | wc -c)
+       echo "words: " $(cat $fil1 | wc -w)
+       echo "lines: " $(cat $fil1 | wc -l);;
+    3) echo "ENter the targeted word: "
+       read word1
+       comd1=$(cat $fil1 | grep -wci $word1)
+       echo "Frequency: " $comd1;;
+    2) comd1=$(cat $fil1 | rev)
+       echo "File in reversed is: "
+       echo "$comd1";;
+    4) comd1=$(cat $fil1)
+       content=$(echo "comd1" | tr [A-Z] [a-z])
+       echo "$content" > $fil1
+       echo "case converted successfully.";;
+    5) echo "Thank you!!!!!!"
+       exit;;
+    *) echo "Invalid choice.";;
+esac
+
+
+

@@ -1,0 +1,31 @@
+
+#!/bin/bash
+
+echo "Enter the file name"
+read fil1
+
+if [ ! -f $fil1 ]
+then
+    echo "No such file exist"
+else
+    echo "1. Display all thr words of a fle in ascending order."
+    echo "2. Display a file in descending order."
+    echo "3. Display a file in reverse order."
+    echo "4. Toggle all the characters in the file."
+    echo "5. Display type of the file."
+    echo "Enter your choice."
+    read choice
+    case $choice in 
+    1) for i in `cat $fil1`
+       do 
+           echo $i>>temp.txt
+       done
+       sort temp.txt
+       rm temp.txt;;
+    2) sort -r $fil1;;
+    3) rev $fil1;;
+    4) cat $fil1 | tr "a-z" "A-Z" ;;
+    5) file $fil1;;
+    *) echo "Please enter the choice!!!";;
+    esac
+fi

@@ -1,0 +1,26 @@
+
+#!/bin/bash
+
+echo "Enter the name of directory 1: "
+read dir1
+
+echo "Enter the name of directory 2: "
+read dir2
+
+echo "Enter the name of directory 3(destination directory): "
+read dir3
+
+if [ -d $dir1 ]; then
+    if [ ! -d $dir3 ]; then
+        mkdir $dir3
+    fi
+    cp -v -r $dir1 $dir3
+else 
+    echo "$dir1 doesn't exist"
+fi    
+
+if [ -d $dir2 ]; then
+    cp -v -r $dir2 $dir3
+else 
+    echo "$dir2 doesn't exist"
+fi
