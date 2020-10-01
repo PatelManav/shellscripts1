@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "Menu"
 echo "1. Display Current Directory"
 echo "2. List Directory"

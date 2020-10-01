@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 if  [ -d $1 ]
 then 
 	ls -R $1

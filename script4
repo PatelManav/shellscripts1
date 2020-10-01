@@ -1,14 +1,12 @@
-
 #!/bin/bash
-
-echo "Enter the file1: "
+echo "Enter the File 1: "
 read dir1
 
-echo "Enter the file2: "
+echo "Enter the File 2: "
 read dir2
 
 if [ ! -d $dir1 -o ! -d $dir2 ]; then
-    echo "no such directory exist"
+    echo "No Such Directory Exist"
     exit 1
 fi
 
@@ -18,5 +16,5 @@ for i in $subs; do
   mv "$dir1/$i" "$dir2"
 done
 
-echo "moving operation done successfully"
+echo "Moving Operation Done Successfully"
 

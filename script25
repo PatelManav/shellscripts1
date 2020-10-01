@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "1. Add item"
 echo "2. Update item"
 echo "3. Delete item"
