@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "Enter the file 1: "
 read fil1
 

@@ -1,12 +1,10 @@
-
 #!/bin/bash
-
-echo "Enter the directory name: "
+echo "Enter the Directory Name: "
 read dir1
 cnt=0
 if [ ! -d "$dir1" ]
 then 
-    echo "Directory doesn't exist."
+    echo "Directory Doesn't Exist."
 else
     for i in `find $dir1 -type f -size 0`
     do 
@@ -15,6 +13,5 @@ else
 	cnt=$((cnt+1))	
     done
 fi
-
-echo "$cnt 0-sized files deleted successfully."
+echo "$cnt 0-sized Files Deleted Successfully."
 

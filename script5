@@ -1,11 +1,9 @@
-
 #!/bin/bash
-
-echo "Enter the name of the directory: "
+echo "Enter the name of the Directory: "
 read dir1
 
 if [ ! -d $dir1 ]; then
-    echo "no such directory exist"
+    echo "No Such Directory Exist"
     exit 1
 fi
 
@@ -18,4 +16,4 @@ for i in $subs; do
     fi
 done
 
-echo "Total executable number files $cnt"
+echo "Total Executable Number Files $cnt"

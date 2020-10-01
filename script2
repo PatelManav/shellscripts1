@@ -1,13 +1,12 @@
 
 #!/bin/bash
-
-echo "Please eneter the file name: "
+echo "Please enter the File name: "
 read filename
 
 if [ -f ~/$filename ]
 then 
 	rm -r $filename
-	echo "file deleted successffully."
+	echo "File Deleted Successffully."
 else 
-	echo "no such file exist"
+	echo "No Such File Exist"
 fi

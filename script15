@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "`date +"%e-%B-%Y %I::%M::%S %p"`"
 tim=`date +"%k"`
 

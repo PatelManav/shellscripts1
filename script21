@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "Please enter the date (in YYYY-MM-DD): "
 read datt
 

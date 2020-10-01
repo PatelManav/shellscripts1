@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "Enter the delay to be made(in seconds): "
 read X
 

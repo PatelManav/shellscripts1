@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "Enter name of directory 1: "
 read dir1
 

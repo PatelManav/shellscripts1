@@ -1,7 +1,4 @@
-
-
 #!/bin/bash
-
 echo "Enter the fle name: "
 read dir1
 

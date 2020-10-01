@@ -1,7 +1,4 @@
-
-
 #!/bin/bash
-
 echo "a) printed the sorted list of users: "
 who | sort
 

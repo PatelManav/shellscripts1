@@ -1,6 +1,4 @@
-
 #!/bin/bash
-
 echo "1. Add Employee."
 echo "2. Get info by ecmployee name."
 echo "3. Find employee with salaray between 4000 to 7000."
